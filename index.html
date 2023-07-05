@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mon Restaurant</title>
+  <link rel="shortcut icon" type="image/png" href="https://monresto.pythonanywhere.com/static/ico.png">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe id="iframe" src="https://monresto.pythonanywhere.com"></iframe>
+
+  <script>
+    // Mettre l'iframe en plein écran
+    var iframe = document.getElementById("iframe");
+    iframe.requestFullscreen = iframe.requestFullscreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullscreen || iframe.msRequestFullscreen;
+    iframe.requestFullscreen();
+
+    // Gérer le redimensionnement de l'iframe en plein écran
+    function resizeIframe() {
+      iframe.style.width = window.innerWidth + "px";
+      iframe.style.height = window.innerHeight + "px";
+    }
+
+    window.addEventListener("resize", resizeIframe);
+    resizeIframe();
+  </script>
+</body>
+</html>
